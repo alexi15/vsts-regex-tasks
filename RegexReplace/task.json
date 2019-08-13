@@ -1,10 +1,9 @@
 ﻿{
-  "id": "918b5374-31ca-4b2a-ac78-92ad468a840f",
+  "id": "918b5374-31ca-4b2a-ac78-92ad468a840b",
   "name": "RegexReplace",
   "friendlyName": "RegEx Find & Replace",
   "description": "Find & Replace using Regular Expressions",
   "helpMarkDown": "[More Information](https://github.com/knom/vsts-regex-tasks/)",
-  "releaseNotes": "What's new in version 3.*<br />Multiple input search paths<br />Empty replace value<br />Minimatch support for search paths<br />UTF-8 Support<br/>Click [here](https://github.com/knom/vsts-regex-tasks/) for more Information.",
   "category": "Utility",
   "visibility": [
     "Build", 
@@ -12,9 +11,9 @@
   ],
   "author": "knom",
   "version": {
-    "Major": 3,
+    "Major": 1,
     "Minor": 0,
-    "Patch": 0
+    "Patch": 2
   },
   "demands": [
   ],
@@ -53,6 +52,14 @@
       "defaultValue": "true",
       "required": true,
       "helpMarkDown": "Reads and writes the files using UTF-8 Encoding; otherwise ASCII encoding is used."
+    },
+    {
+      "name": "UserRAW",
+      "type": "boolean",
+      "label": "Open file using Raw",
+      "defaultValue": "true",
+      "required": true,
+      "helpMarkDown": "Reads the files using raw."
     }
   ],
   "instanceNameFormat": "RegEx Find & Replace",

@@ -7,7 +7,9 @@ param(
     [String]
     $ReplaceRegex,
     [Bool]
-    $UseUTF8 = $true
+    $UseUTF8 = $true,
+    [Bool]
+    $UserRAW = $true
 )
 
 Trace-VstsEnteringInvocation $MyInvocation
@@ -33,14 +35,27 @@ try {
 
     foreach ($path in $inputPaths) {
         Write-Host "...in file $path"
-        if ($UseUTF8) {
-            $text = Get-Content $path -Encoding UTF8
-            $text -replace $findRegex, $replaceRegex | Set-Content $path -Encoding UTF8
+        if ($UserRAW) {
+            if ($UseUTF8) {
+                $text = Get-Content $path -Encoding UTF8 -Raw
+                $text -replace $findRegex, $replaceRegex | Set-Content $path -Encoding UTF8
+            }
+            else {
+                $text = Get-Content $path -Raw
+                $text -replace $findRegex, $replaceRegex | Set-Content $path
+            }
         }
         else {
-            $text = Get-Content $path
-            $text -replace $findRegex, $replaceRegex | Set-Content $path
+            if ($UseUTF8) {
+                $text = Get-Content $path -Encoding UTF8
+                $text -replace $findRegex, $replaceRegex | Set-Content $path -Encoding UTF8
+            }
+            else {
+                $text = Get-Content $path
+                $text -replace $findRegex, $replaceRegex | Set-Content $path
+            }
         }
+        
     }
 }
 finally {

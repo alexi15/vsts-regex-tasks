@@ -1,16 +1,16 @@
 {
   "manifestVersion": 1,
-  "id": "regexreplace-task",
-  "name": "RegexReplace Build Task",
-  "version": "2.1.0",
-  "publisher": "knom",
+  "id": "RegexReplace",
+  "name": "RegexReplace Build Task - With raw",
+  "version": "1.0.2",
+  "publisher": "fuglarehf",
   "targets": [{
     "id": "Microsoft.VisualStudio.Services"
   }],
   "description": "A task for replacing REGULAR EXPRESSIONS in your files with variables and text.",
-  "public": true,
+  "public": false,
   "categories": [
-    "Build and release"
+    "Azure Pipelines"
   ],
   "tags": [
     "regex",
